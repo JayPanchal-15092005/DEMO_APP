@@ -1,0 +1,238 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>ભાડા કરાર (Rent Agreement)</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #333; }
+        .details { background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .dynamic-data { font-weight: bold; color: #000; }
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <h1 class="text-center">ભાડા કરાર (Rent Agreement)</h1>
+
+    [cite_start]<p>આ ભાડા કરાર આજે તારીખ <span class="dynamic-data">{{agreementDate}}</span> ના રોજ ખાતે નીચે મુજબના પક્ષકારો વચ્ચે કરવામાં આવેલ છે: [cite: 2, 3]</p>
+
+    <div class="details">
+        [cite_start]<h2>પક્ષકાર ૧: મકાનમાલિક [cite: 4]</h2>
+        [cite_start]<p>નામ: <span class="dynamic-data">{{landlordName}}</span> [cite: 5]</p>
+        [cite_start]<p>પિતા: <span class="dynamic-data">{{landlordFatherName}}</span> [cite: 6]</p>
+        [cite_start]<p>ઉંમર: <span class="dynamic-data">{{landlordAge}}</span> [cite: 7]</p>
+        [cite_start]<p>રહેવાસી: <span class="dynamic-data">{{landlordAddress}}</span> [cite: 8]</p>
+    </div>
+
+    <p class="text-center">અને</p>
+
+    <div class="details">
+        [cite_start]<h2>પક્ષકાર ૨: ભાડુઆત [cite: 10]</h2>
+        [cite_start]<p>નામ: <span class="dynamic-data">{{tenantName}}</span> [cite: 11]</p>
+        [cite_start]<p>પિતા: <span class="dynamic-data">{{tenantFatherName}}</span> [cite: 12]</p>
+        [cite_start]<p>ઉંમર: <span class="dynamic-data">{{tenantAge}}</span> [cite: 13]</p>
+        [cite_start]<p>રહેવાસી: <span class="dynamic-data">{{tenantAddress}}</span> [cite: 14]</p>
+    </div>
+
+    [cite_start]<p>જેથી, મકાનમાલિક નીચે જણાવેલ મિલકતના સંપૂર્ણ માલિક છે: [cite: 15]</p>
+    <p class="dynamic-data">{{propertyDescription}}</p>
+
+    [cite_start]<p>અને જેથી, ભાડુઆતે માસિક ભાડા પર મિલકત ભાડે લેવા માટે મકાનમાલિકનો સંપર્ક કર્યો છે અને મકાનમાલિક નીચેની શરતો પર સંમત થયા છે: [cite: 16]</p>
+
+    [cite_start]<h2>કરારની શરતો: [cite: 17]</h2>
+    <ol>
+        [cite_start]<li>સદરહું કરાર <span class="dynamic-data">{{months}}</span> મહિનાની અવધિ માટે અમલમાં રહેશે, જે તારીખ <span class="dynamic-data">{{startDate}}</span> થી શરૂ થઈને તારીખ <span class="dynamic-data">{{endDate}}</span> ના રોજ પૂર્ણ થશે. [cite: 18, 21, 22]</li>
+        [cite_start]<li>સદરહું ભાડે આપેલી મિલકત માટે માસિક ભાડું ₹<span class="dynamic-data">{{rentAmount}}</span>/- નક્કી કરવામાં આવ્યું છે, જે દર મહિનાની અંગ્રેજી તારીખ ૫ પહેલાં ભાડુઆત દ્વારા ચુકવવાનું બાંયધરી કરવામાં આવે છે. [cite: 19, 20, 23]</li>
+        [cite_start]<li>ભાડુઆતે આ કરારની ખાતરીરૂપે સિક્યોરિટી ડિપોઝીટ તરીકે ₹<span class="dynamic-data">{{securityDeposit}}</span>/- ચુકવેલ છે, જે કરારની સમાપ્તિ સમયે મિલકતમાં કોઇ નુકસાન ન થયેલ હોય તો માલિકે પુર્ણ પરિક્ષણ બાદ ભાડુઆતને પરત કરવાનું રહેશે. [cite: 24]</li>
+        [cite_start]<li>સદરહું ભાડે આપેલી મીલકત તમોને જ ભાડેથી આપેલ છે, જેથી તમો પ્રથમ પક્ષના જ તેનો ઉપયોગ, વપરાશ કરી શકો છો અને તેમાં અન્ય પેટા ભાડુત રાખવાના નથી. [cite: 25]</li>
+        <li>સદરહું મિલકતમાં કાંઇ પણ જાતના સુધારા વધારા કે કાચું, પાકુ બાંધકામ, કે તોડફોડ, કરવાનુ થાય તો હમો બીજા પક્ષનાની પરવાનગી લઇને અમો પહેલા પક્ષનાના ખર્ચે કરવાનુ રહેશે. [cite_start]અને તેની તમામ જવાબદારી અમો ભાડે રાખનારની રહેશે. [cite: 26, 27]</li>
+        <li>સદરહું મિલકત સુપરત કરો ત્યારે જે સ્થિતિમાં મિલકત છે તેજ સ્થિતિમાં સુપરત કરવાની રહેશે. [cite_start]અને જો કોઇ મિલકતમાં નુકશાન કરેલ હશે તો તે તમો ભાડે રાખનારે ભરપાઇ કરવાનું રહેશે. [cite: 28, 29]</li>
+        [cite_start]<li>સદરહું મીલકતની તપાસ હમો માલીક અમારી રીતે કરી શકીશુ, તેમ કરવામાં તમો ભાડે રાખનારે કાંઈપણ રોકટોક કરવાની નથી. [cite: 30]</li>
+        [cite_start]<li>સદરહું મિલકતમાં જે લાઇટનો વપરાશ કરો તે બીલ ભાડે રાખનારે અલગથી ચુકવવાનું રહેશે. [cite: 31]</li>
+        [cite_start]<li>સદરહું ભાડે આપનાર મીલકતમાં કોઈપણ પ્રકારનો સરકાર દ્રારા પ્રતીબંધિત ધંધો કે કૃત્ય કરી શકાશે નહી તેમજ પ્રતિબંધિત તેના નશાકારક કે સ્ફોટક પદાર્થો રાખવાના કે વેચાણ કરવાના નથી. [cite: 32]</li>
+        [cite_start]<li>સદરહું મિલકતની અમો ભાડે આપનારને જરૂર પડે તો એક મહિના અગાઉથી લેખીતમા નોટીસ આપવાની રહેશે, અને જો તમો ભાડે રાખનારને મિલકત ખાલી કરવાની થાય તો તમો ભાડે રાખનારે એક મહિના અગાઉથી લેખીતમાં જાણ કરવાની રહેશે. [cite: 33]</li>
+    </ol>
+
+    [cite_start]<p>આથી, ઉપરોક્ત લખાણ સાચી અને બરાબર છે તેની ખાતરી કરવા માટે, બંને પક્ષકારોએ સાક્ષીઓની હાજરીમાં સહી કરેલ છે. [cite: 34]</p>
+
+    [cite_start]<h3 class="text-center">સહીઓ [cite: 35]</h3>
+    <table style="width:100%; margin-top: 30px;">
+        <tr>
+            <td style="width: 50%; text-align: center;">
+                [cite_start]<p>મકાનમાલિકની સહી [cite: 36]</p>
+                <p><span class="dynamic-data">{{landlordSignature}}</span></p>
+                <p>(<span class="dynamic-data">{{landlordName}}</span>)</p>
+            </td>
+            <td style="width: 50%; text-align: center;">
+                [cite_start]<p>ભાડુઆતની સહી [cite: 40]</p>
+                <p><span class="dynamic-data">{{tenantSignature}}</span></p>
+                <p>(<span class="dynamic-data">{{tenantName}}</span>)</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html> -->
+
+<html>
+  <head>
+    <title>ભાડા કરાર (Rent Agreement)</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #333;
+      }
+      .details {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .dynamic-data {
+        font-weight: bold;
+        color: #000;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">ભાડા કરાર (Rent Agreement)</h1>
+
+    <p>
+      આ ભાડા કરાર આજે તારીખ
+      <span class="dynamic-data">{{agreementDate}}</span> ના રોજ
+      <span class="dynamic-data">{{agreementLocation}}</span> ખાતે નીચે મુજબના
+      પક્ષકારો વચ્ચે કરવામાં આવેલ છે:
+    </p>
+
+    <div class="details">
+      <h2 style="font-size: small">પક્ષકાર ૧: મકાનમાલિક</h2>
+      <p style="font-size: small">
+        નામ: <span class="dynamic-data">{{landlordName}}</span>
+      </p>
+      <p style="font-size: small">
+        પિતા: <span class="dynamic-data">{{landlordFatherName}}</span>
+      </p>
+      <p style="font-size: small">
+        ઉંમર: <span class="dynamic-data">{{landlordAge}}</span>
+      </p>
+      <p style="font-size: small">
+        રહેવાસી: <span class="dynamic-data">{{landlordAddress}}</span>
+      </p>
+    </div>
+
+    <p class="text-center">અને</p>
+
+    <div class="details">
+      <h2 style="font-size: small">પક્ષકાર ૨: ભાડુઆત</h2>
+      <p style="font-size: small">
+        નામ: <span class="dynamic-data">{{tenantName}}</span>
+      </p>
+      <p style="font-size: small">
+        પિતા: <span class="dynamic-data">{{tenantFatherName}}</span>
+      </p>
+      <p style="font-size: small">
+        ઉંમર: <span class="dynamic-data">{{tenantAge}}</span>
+      </p>
+      <p style="font-size: small">
+        રહેવાસી: <span class="dynamic-data">{{tenantAddress}}</span>
+      </p>
+    </div>
+
+    <p>જેથી, મકાનમાલિક નીચે જણાવેલ મિલકતના સંપૂર્ણ માલિક છે:</p>
+    <p class="dynamic-data">{{propertyDescription}}</p>
+
+    <p>
+      અને જેથી, ભાડુઆતે માસિક ભાડા પર મિલકત ભાડે લેવા માટે મકાનમાલિકનો સંપર્ક
+      કર્યો છે અને મકાનમાલિક નીચેની શરતો પર સંમત થયા છે:
+    </p>
+
+    <h2>કરારની શરતો:</h2>
+    <ol>
+      <li>
+        સદરહું કરાર <span class="dynamic-data">{{months}}</span> મહિનાની અવધિ
+        માટે અમલમાં રહેશે, જે તારીખ
+        <span class="dynamic-data">{{startDate}}</span> થી શરૂ થઈને તારીખ
+        <span class="dynamic-data">{{endDate}}</span> ના રોજ પૂર્ણ થશે.
+      </li>
+      <li>
+        સદરહું ભાડે આપેલી મિલકત માટે માસિક ભાડું ₹<span class="dynamic-data"
+          >{{rentAmount}}</span
+        >/- નક્કી કરવામાં આવ્યું છે, જે દર મહિનાની અંગ્રેજી તારીખ ૫ પહેલાં
+        ભાડુઆત દ્વારા ચુકવવાનું બાંયધરી કરવામાં આવે છે.
+      </li>
+      <li>
+        ભાડુઆતે આ કરારની ખાતરીરૂપે સિક્યોરિટી ડિપોઝીટ તરીકે ₹<span
+          class="dynamic-data"
+          >{{securityDeposit}}</span
+        >/- ચુકવેલ છે, જે કરારની સમાપ્તિ સમયે મિલકતમાં કોઇ નુકસાન ન થયેલ હોય તો
+        માલિકે પુર્ણ પરિક્ષણ બાદ ભાડુઆતને પરત કરવાનું રહેશે.
+      </li>
+      <li>
+        સદરહું ભાડે આપેલી મીલકત તમોને જ ભાડેથી આપેલ છે, જેથી તમો પ્રથમ પક્ષના જ
+        તેનો ઉપયોગ, વપરાશ કરી શકો છો અને તેમાં અન્ય પેટા ભાડુત રાખવાના નથી.
+      </li>
+      <li>
+        સદરહું મિલકતમાં કાંઇ પણ જાતના સુધારા વધારા કે કાચું, પાકુ બાંધકામ, કે
+        તોડફોડ, કરવાનુ થાય તો હમો બીજા પક્ષનાની પરવાનગી લઇને અમો પહેલા પક્ષનાના
+        ખર્ચે કરવાનુ રહેશે. અને તેની તમામ જવાબદારી અમો ભાડે રાખનારની રહેશે.
+      </li>
+      <li>
+        સદરહું મિલકત સુપરત કરો ત્યારે જે સ્થિતિમાં મિલકત છે તેજ સ્થિતિમાં સુપરત
+        કરવાની રહેશે. અને જો કોઇ મિલકતમાં નુકશાન કરેલ હશે તો તે તમો ભાડે રાખનારે
+        ભરપાઇ કરવાનું રહેશે.
+      </li>
+      <li>
+        સદરહું મીલકતની તપાસ હમો માલીક અમારી રીતે કરી શકીશુ, તેમ કરવામાં તમો ભાડે
+        રાખનારે કાંઈપણ રોકટોક કરવાની નથી.
+      </li>
+      <li>
+        સદરહું મિલકતમાં જે લાઇટનો વપરાશ કરો તે બીલ ભાડે રાખનારે અલગથી ચુકવવાનું
+        રહેશે.
+      </li>
+      <li>
+        સદરહું ભાડે આપનાર મીલકતમાં કોઈપણ પ્રકારનો સરકાર દ્રારા પ્રતીબંધિત ધંધો
+        કે કૃત્ય કરી શકાશે નહી તેમજ પ્રતિબંધિત તેના નશાકારક કે સ્ફોટક પદાર્થો
+        રાખવાના કે વેચાણ કરવાના નથી.
+      </li>
+      <li>
+        સદરહું મિલકતની અમો ભાડે આપનારને જરૂર પડે તો એક મહિના અગાઉથી લેખીતમા
+        નોટીસ આપવાની રહેશે, અને જો તમો ભાડે રાખનારને મિલકત ખાલી કરવાની થાય તો
+        તમો ભાડે રાખનારે એક મહિના અગાઉથી લેખીતમાં જાણ કરવાની રહેશે.
+      </li>
+    </ol>
+
+    <p>
+      આથી, ઉપરોક્ત લખાણ સાચી અને બરાબર છે તેની ખાતરી કરવા માટે, બંને પક્ષકારોએ
+      સાક્ષીઓની હાજરીમાં સહી કરેલ છે.
+    </p>
+
+    <!-- <h3 class="text-center">સહીઓ</h3> -->
+    <table style="width: 100%; margin-top: 30px">
+      <tr>
+        <td style="width: 35%; text-align: center">
+          <p>સાક્ષીની સહી</p>
+          <p><span class="dynamic-data">{{witnessName}}</span></p>
+          <p>(_______________)</p>
+        </td>
+        <td style="width: 50%; text-align: center">
+          <p>મકાનમાલિકની સહી</p>
+          <p><span class="dynamic-data">{{landlordSignature}}</span></p>
+          <p>(<span class="dynamic-data">{{landlordName}}</span>)</p>
+        </td>
+        <td style="width: 50%; text-align: center">
+          <p>ભાડુઆતની સહી</p>
+          <p><span class="dynamic-data">{{tenantSignature}}</span></p>
+          <p>(<span class="dynamic-data">{{tenantName}}</span>)</p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
