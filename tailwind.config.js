@@ -7,4 +7,10 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: [
+  "text-black",
+  "text-white",
+  "text-base"
+]
+
 }

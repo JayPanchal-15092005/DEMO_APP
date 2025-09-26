@@ -1,7 +1,6 @@
-import { Stack } from 'expo-router';
-import { TouchableOpacity, Text } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 
 export default function FormsLayout() {
   const router = useRouter();
@@ -27,9 +26,9 @@ export default function FormsLayout() {
             <TouchableOpacity 
               onPress={() => {
                 // This will be called from the child component.
-                // We'll pass a function to the child component in the next step.
+                // I pass a function to the child component in the next step.
               }}
-              className="bg-blue-600 px-4 py-2 rounded-md"
+              className="bg-blue-600 px-10 py-2 rounded-md "
             >
               <Text className="text-white font-bold">દસ્તાવેજ જુઓ</Text>
             </TouchableOpacity>

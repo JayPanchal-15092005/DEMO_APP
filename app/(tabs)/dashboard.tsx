@@ -227,7 +227,7 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
               editable={true}
             />
 
-            <View className="flex-row justify-end space-x-3 mt-2">
+            <View className="flex-row justify-between mt-2">
               <TouchableOpacity
                 onPress={onClose}
                 className="bg-gray-200 px-6 py-3 rounded-lg"

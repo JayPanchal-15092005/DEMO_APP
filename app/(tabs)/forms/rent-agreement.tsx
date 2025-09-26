@@ -5,11 +5,13 @@ import { useNavigation, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   Alert,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import {
   SafeAreaView,
@@ -121,7 +123,7 @@ export default function RentAgreementForm() {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <TouchableOpacity
               onPress={onPrintPress}
-              className="bg-green-600 px-4 py-2 rounded-md mr-2" // Add some margin
+              className="bg-green-600 px-4 py-2 rounded-md mr-3 " // Add some margin
             >
               <Text className="text-white font-bold">પ્રિન્ટ કરો</Text>
             </TouchableOpacity>
@@ -139,6 +141,11 @@ export default function RentAgreementForm() {
 
   return (
     <View className="flex-1 bg-gray-100">
+      <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={100} // adjust if header overlaps
+      >
            {" "}
       <ScrollView
         contentContainerStyle={{ paddingBottom: insets.bottom + 20 }}
@@ -150,14 +157,14 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="શહેર"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("agreementLocation", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="કરારની તારીખ (DD/MM/YYYY)"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("agreementDate", text)}
@@ -168,21 +175,21 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("landlordName", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="પિતાનું નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("landlordFatherName", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="ઉંમર"
           placeholderTextColor="#888"
           keyboardType="numeric"
@@ -190,7 +197,7 @@ export default function RentAgreementForm() {
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="રહેવાસી (સરનામું)"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("landlordAddress", text)}
@@ -201,21 +208,21 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("tenantName", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="પિતાનું નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("tenantFatherName", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="ઉંમર"
           placeholderTextColor="#888"
           keyboardType="numeric"
@@ -223,7 +230,7 @@ export default function RentAgreementForm() {
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="રહેવાસી (સરનામું)"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("tenantAddress", text)}
@@ -234,7 +241,7 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="મિલકતનું સંપૂર્ણ વર્ણન"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("propertyDescription", text)}
@@ -242,7 +249,7 @@ export default function RentAgreementForm() {
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="ભાડાનો સમયગાળો (મહિનામાં)"
           placeholderTextColor="#888"
           keyboardType="numeric"
@@ -250,21 +257,21 @@ export default function RentAgreementForm() {
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="શરૂઆતની તારીખ (DD/MM/YYYY)"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("startDate", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="અંતની તારીખ (DD/MM/YYYY)"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("endDate", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="માસિક ભાડું (₹)"
           placeholderTextColor="#888"
           keyboardType="numeric"
@@ -272,7 +279,7 @@ export default function RentAgreementForm() {
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="સિક્યોરિટી ડિપોઝીટ (₹)"
           placeholderTextColor="#888"
           keyboardType="numeric"
@@ -284,14 +291,14 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="મકાનમાલિકની સહીનું નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("landlordSignature", text)}
         />
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="ભાડુઆતની સહીનું નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("tenantSignature", text)}
@@ -302,7 +309,7 @@ export default function RentAgreementForm() {
         </Text>
                {" "}
         <TextInput
-          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base"
+          className="bg-white border border-gray-300 p-3 rounded-lg mb-4 text-base text-black"
           placeholder="સાક્ષીનું નામ"
           placeholderTextColor="#888"
           onChangeText={(text) => handleChange("witnessName", text)}
@@ -314,6 +321,7 @@ export default function RentAgreementForm() {
         /> */}
              {" "}
       </ScrollView>
+      </KeyboardAvoidingView>
          {" "}
     </View>
   );
