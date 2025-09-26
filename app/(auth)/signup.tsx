@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { useSignUp } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
+import React, { useState } from "react";
+import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -61,6 +61,7 @@ export default function SignUpScreen() {
             <Text className="text-3xl font-bold text-center mb-6">Sign Up</Text>
             <TextInput
               placeholder="Email"
+          placeholderTextColor="#888"
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -69,6 +70,7 @@ export default function SignUpScreen() {
             />
             <TextInput
               placeholder="Password"
+          placeholderTextColor="#888"
               value={password}
               onChangeText={setPassword}
               secureTextEntry
@@ -90,6 +92,7 @@ export default function SignUpScreen() {
             </Text>
             <TextInput
               placeholder="Verification Code"
+          placeholderTextColor="#888"
               value={code}
               onChangeText={setCode}
               keyboardType="number-pad"

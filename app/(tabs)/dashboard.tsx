@@ -107,6 +107,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter full name"
+          placeholderTextColor="#888"
+
               value={clientData.fullName}
               onChangeText={(text) => onInputChange("fullName", text)}
             />
@@ -117,6 +119,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter email"
+          placeholderTextColor="#888"
+
               value={clientData.email}
               onChangeText={(text) => onInputChange("email", text)}
               keyboardType="email-address"
@@ -129,6 +133,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter 10-digit mobile number"
+          placeholderTextColor="#888"
+
               value={clientData.mobile}
               onChangeText={(text) => onInputChange("mobile", text)}
               keyboardType="phone-pad"
@@ -141,6 +147,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 h-20 mb-4"
               placeholder="Enter full address"
+          placeholderTextColor="#888"
+
               value={clientData.fullAddress}
               onChangeText={(text) => onInputChange("fullAddress", text)}
               multiline
@@ -153,6 +161,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter reference name"
+          placeholderTextColor="#888"
+
               value={clientData.referenceName}
               onChangeText={(text) => onInputChange("referenceName", text)}
             />
@@ -163,6 +173,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter 10-digit mobile number"
+          placeholderTextColor="#888"
+
               value={clientData.referenceMobile}
               onChangeText={(text) => onInputChange("referenceMobile", text)}
               keyboardType="phone-pad"
@@ -173,6 +185,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter 6-digit pincode"
+          placeholderTextColor="#888"
+
               value={clientData.pincode}
               onChangeText={(text) => onInputChange("pincode", text)}
               keyboardType="numeric"
@@ -185,6 +199,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
                 <TextInput
                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
                   placeholder=""
+          placeholderTextColor="#888"
+
                   editable={true}
                 />
               </View>
@@ -193,6 +209,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
                 <TextInput
                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
                   placeholder=""
+          placeholderTextColor="#888"
+
                   editable={true}
                 />
                 {/* // value={clientData.city} */}
@@ -203,6 +221,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 mb-4"
               placeholder="Enter village name"
+          placeholderTextColor="#888"
+
               value={clientData.village}
               onChangeText={(text) => onInputChange("village", text)}
             />
@@ -213,6 +233,8 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
             <TextInput
               className="w-full border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
               placeholder="Enter pincode first"
+          placeholderTextColor="#888"
+
               editable={true}
             />
 
@@ -427,6 +449,8 @@ const App = () => {
             <Text className="text-gray-500 mr-2">🔍</Text>
             <TextInput
               placeholder=""
+          placeholderTextColor="#888"
+
               className="flex-1 h-10 text-gray-700"
               value={searchQuery}
               onChangeText={setSearchQuery}
