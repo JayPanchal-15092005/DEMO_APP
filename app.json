@@ -20,7 +20,8 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.jay_panchal.legaldocument"
+      "package": "com.jay_panchal.legaldocument",
+      "softwareKeyboardLayoutMode": "resize"
     },
     "web": {
       "output": "static",

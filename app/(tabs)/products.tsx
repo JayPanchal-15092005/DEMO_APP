@@ -46,7 +46,7 @@ export default function ProductsScreen() {
     }
   };
   
-  if (!fontsLoaded) {
+  if (!true) {
     return (
       <SafeAreaView className="flex-1 justify-center items-center bg-gray-100">
         <ActivityIndicator size="large" color="#0000ff" />

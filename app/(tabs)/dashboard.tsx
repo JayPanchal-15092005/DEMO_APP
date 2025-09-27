@@ -73,8 +73,11 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
       onRequestClose={onClose}
     >
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        className="flex-1 justify-center items-center bg-black/50"
+    //      behavior={Platform.OS === "ios" ? "padding" : "position"} 
+    // keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0} 
+    // className="flex-1 justify-center items-center bg-black/50"
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+      className="flex-1 justify-center items-center bg-black/50"
       >
         <View className="bg-white rounded-lg shadow-xl w-11/12 max-h-[85%]">
           <View className="flex-row items-center justify-between p-4 border-b border-gray-200">
@@ -87,12 +90,13 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
               </Text>
             </View>
             <TouchableOpacity onPress={onClose}>
-              <Text className="text-gray-500 font-bold text-2xl">×</Text>
+              <Text className="text-gray-500 font-bold text-2xl"></Text>
             </TouchableOpacity>
           </View>
           <ScrollView
             contentContainerStyle={{ padding: 16 }}
             keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
           >
             <View className="mb-4 bg-gray-100 p-2 rounded-md">
               <Text className="text-gray-600 font-semibold">
@@ -191,7 +195,7 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
                 <Text className="text-gray-700 font-semibold mb-1">State</Text>
                 <TextInput
                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
-                  placeholder=""
+                  placeholder="Enter state"
                   placeholderTextColor="#888"
                   editable={true}
                 />
@@ -200,7 +204,7 @@ const AddClientForm: React.FC<AddClientFormProps> = React.memo(
                 <Text className="text-gray-700 font-semibold mb-1">City</Text>
                 <TextInput
                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
-                  placeholder=""
+                  placeholder="Enter city"
                   placeholderTextColor="#888"
                   editable={true}
                 />
@@ -437,7 +441,7 @@ const App = () => {
           <View className="flex-row items-center bg-gray-100 rounded-lg px-3 py-1 w-full mb-4">
             <Text className="text-gray-500 mr-2">🔍</Text>
             <TextInput
-              placeholder=""
+              placeholder="Search"
               placeholderTextColor="#888"
               className="flex-1 h-10 text-gray-700"
               value={searchQuery}

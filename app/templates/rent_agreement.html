@@ -7,23 +7,41 @@
         padding: 20px;
         line-height: 1.6;
       }
+      .text-center {
+        text-align: center;
+      }
+
+      /* --- ADD THIS NEW STYLE FOR THE BOX --- */
+      .property-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        min-height: 80px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
       h1,
       h2,
       h3 {
         color: #333;
       }
-      .details {
+      <!-- .details {
         background-color: #f9f9f9;
         padding: 15px;
         border-radius: 8px;
         margin-bottom: 20px;
       }
-      .dynamic-data {
-        font-weight: bold;
-        color: #000;
-      }
-      .text-center {
-        text-align: center;
+      
+      /* FIX: Added special styles for printing */
+      @media print {
+        body {
+          margin: 20; /* Let expo-print handle outer margins */
+        }
+        .details,
+        ol > li,
+        table {
+          page-break-inside: avoid; /* Prevents elements from being split across pages */
+        }
       }
     </style>
   </head>
@@ -39,40 +57,41 @@
 
     <div class="details">
       <h2 style="font-size: small">પક્ષકાર ૧: મકાનમાલિક</h2>
+
       <p style="font-size: small">
-        નામ: <span class="dynamic-data">{{landlordName}}</span>
-      </p>
-      <p style="font-size: small">
-        પિતા: <span class="dynamic-data">{{landlordFatherName}}</span>
-      </p>
-      <p style="font-size: small">
-        ઉંમર: <span class="dynamic-data">{{landlordAge}}</span>
-      </p>
-      <p style="font-size: small">
-        રહેવાસી: <span class="dynamic-data">{{landlordAddress}}</span>
+        નામ: <span class="dynamic-data">{{landlordName}}</span>, પિતા:
+        <span class="dynamic-data">{{landlordFatherName}}</span>, ઉંમર:
+        <span class="dynamic-data">{{landlordAge}}</span>, રહેવાસી:
+        <span class="dynamic-data">{{landlordAddress}}</span>
       </p>
     </div>
 
-    <p class="text-center">અને</p>
+    <h6 class="text-center">અને</h6>
 
     <div class="details">
       <h2 style="font-size: small">પક્ષકાર ૨: ભાડુઆત</h2>
+
       <p style="font-size: small">
-        નામ: <span class="dynamic-data">{{tenantName}}</span>
-      </p>
-      <p style="font-size: small">
-        પિતા: <span class="dynamic-data">{{tenantFatherName}}</span>
-      </p>
-      <p style="font-size: small">
-        ઉંમર: <span class="dynamic-data">{{tenantAge}}</span>
-      </p>
-      <p style="font-size: small">
-        રહેવાસી: <span class="dynamic-data">{{tenantAddress}}</span>
+        નામ: <span class="dynamic-data">{{tenantName}}</span>, પિતા:
+        <span class="dynamic-data">{{tenantFatherName}}</span>, ઉંમર:
+        <span class="dynamic-data">{{tenantAge}}</span>, રહેવાસી:
+        <span class="dynamic-data">{{tenantAddress}}</span>
       </p>
     </div>
 
-    <p>જેથી, મકાનમાલિક નીચે જણાવેલ મિલકતના સંપૂર્ણ માલિક છે:</p>
+    <!-- <p>જેથી, મકાનમાલિક નીચે જણાવેલ મિલકતના સંપૂર્ણ માલિક છે:</p>
     <p class="dynamic-data">{{propertyDescription}}</p>
+
+    <p>
+      અને જેથી, ભાડુઆતે માસિક ભાડા પર મિલકત ભાડે લેવા માટે મકાનમાલિકનો સંપર્ક
+      કર્યો છે અને મકાનમાલિક નીચેની શરતો પર સંમત થયા છે:
+    </p> -->
+
+    <p>જેથી, મકાનમાલિક નીચે જણાવેલ મિલકતના સંપૂર્ણ માલિક છે:</p>
+
+    <div class="property-box">
+      <p class="dynamic-data">{{propertyDescription}}</p>
+    </div>
 
     <p>
       અને જેથી, ભાડુઆતે માસિક ભાડા પર મિલકત ભાડે લેવા માટે મકાનમાલિકનો સંપર્ક
@@ -139,7 +158,6 @@
       સાક્ષીઓની હાજરીમાં સહી કરેલ છે.
     </p>
 
-    <!-- <h3 class="text-center">સહીઓ</h3> -->
     <table style="width: 100%; margin-top: 30px">
       <tr>
         <td style="width: 35%; text-align: center">
