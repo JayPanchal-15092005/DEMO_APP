@@ -5,12 +5,13 @@ import {
   Modal,
   Platform,
   ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ClientData = [
   {
@@ -43,214 +44,385 @@ const ClientData = [
 
 // --- FIX: Form component moved outside of the App component ---
 // This prevents it from being re-created on every state change in the parent.
+// interface AddClientFormProps {
+//   visible: boolean;
+//   onClose: () => void;
+//   clientData: {
+//     id: string;
+//     fullName: string;
+//     email: string;
+//     mobile: string;
+//     fullAddress: string;
+//     referenceName: string;
+//     referenceMobile: string;
+//     pincode: string;
+//     state: string;
+//     city: string;
+//     village: string;
+//     postOffice: string;
+//   };
+//   onInputChange: (field: string, value: string) => void;
+//   onSubmit: () => void;
+// }
+
 interface AddClientFormProps {
   visible: boolean;
   onClose: () => void;
-  clientData: {
-    id: string;
-    fullName: string;
-    email: string;
-    mobile: string;
-    fullAddress: string;
-    referenceName: string;
-    referenceMobile: string;
-    pincode: string;
-    state: string;
-    city: string;
-    village: string;
-    postOffice: string;
-  };
+  clientData: any;
   onInputChange: (field: string, value: string) => void;
   onSubmit: () => void;
 }
 
-const AddClientForm: React.FC<AddClientFormProps> = React.memo(
-  ({ visible, onClose, clientData, onInputChange, onSubmit }) => (
+
+// const AddClientForm: React.FC<AddClientFormProps> = React.memo(
+//   ({ visible, onClose, clientData, onInputChange, onSubmit }) => (
+//     <Modal
+//       animationType="slide"
+//       transparent={true}
+//       visible={visible}
+//       onRequestClose={onClose}
+//     >
+//       <KeyboardAvoidingView
+//     //      behavior={Platform.OS === "ios" ? "padding" : "position"} 
+//     // keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0} 
+//     // className="flex-1 justify-center items-center bg-black/50"
+//     behavior={Platform.OS === "ios" ? "padding" : "height"}
+//       className="flex-1 justify-center items-center bg-black/50"
+//       >
+//         <View className="bg-white rounded-lg shadow-xl w-11/12 max-h-[85%]">
+//           <View className="flex-row items-center justify-between p-4 border-b border-gray-200">
+//             <View>
+//               <Text className="text-xl font-bold text-gray-800">
+//                 Create a new client
+//               </Text>
+//               <Text className="text-sm text-gray-500">
+//                 with selected services
+//               </Text>
+//             </View>
+//             <TouchableOpacity onPress={onClose}>
+//               <Text className="text-gray-500 font-bold text-2xl"></Text>
+//             </TouchableOpacity>
+//           </View>
+//           <ScrollView
+//             contentContainerStyle={{ padding: 16 }}
+//             keyboardShouldPersistTaps="handled"
+//             showsVerticalScrollIndicator={false}
+//           >
+//             <View className="mb-4 bg-gray-100 p-2 rounded-md">
+//               <Text className="text-gray-600 font-semibold">
+//                 Client ID: {clientData.id}
+//               </Text>
+//             </View>
+
+//             {/* Form Fields */}
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Full Name <Text className="text-red-500">*</Text>
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter full name"
+//               placeholderTextColor="#888"
+//               value={clientData.fullName}
+//               onChangeText={(text) => onInputChange("fullName", text)}
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Email <Text className="text-red-500">*</Text>
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter email"
+//               placeholderTextColor="#888"
+//               value={clientData.email}
+//               onChangeText={(text) => onInputChange("email", text)}
+//               keyboardType="email-address"
+//               autoCapitalize="none"
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Mobile <Text className="text-red-500">*</Text>
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter 10-digit mobile number"
+//               placeholderTextColor="#888"
+//               value={clientData.mobile}
+//               onChangeText={(text) => onInputChange("mobile", text)}
+//               keyboardType="phone-pad"
+//               maxLength={10}
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Full Address
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 h-20 mb-4"
+//               placeholder="Enter full address"
+//               placeholderTextColor="#888"
+//               value={clientData.fullAddress}
+//               onChangeText={(text) => onInputChange("fullAddress", text)}
+//               multiline
+//               textAlignVertical="top"
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Reference Name
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter reference name"
+//               placeholderTextColor="#888"
+//               value={clientData.referenceName}
+//               onChangeText={(text) => onInputChange("referenceName", text)}
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Reference Mobile
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter 10-digit mobile number"
+//               placeholderTextColor="#888"
+//               value={clientData.referenceMobile}
+//               onChangeText={(text) => onInputChange("referenceMobile", text)}
+//               keyboardType="phone-pad"
+//               maxLength={10}
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">Pincode</Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter 6-digit pincode"
+//               placeholderTextColor="#888"
+//               value={clientData.pincode}
+//               onChangeText={(text) => onInputChange("pincode", text)}
+//               keyboardType="numeric"
+//               maxLength={6}
+//             />
+
+//             <View className="flex-row space-x-4">
+//               <View className="flex-1">
+//                 <Text className="text-gray-700 font-semibold mb-1">State</Text>
+//                 <TextInput
+//                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
+//                   placeholder="Enter state"
+//                   placeholderTextColor="#888"
+//                   editable={true}
+//                 />
+//               </View>
+//               <View className="flex-1">
+//                 <Text className="text-gray-700 font-semibold mb-1">City</Text>
+//                 <TextInput
+//                   className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
+//                   placeholder="Enter city"
+//                   placeholderTextColor="#888"
+//                   editable={true}
+//                 />
+//                 {/* // value={clientData.city} */}
+//               </View>
+//             </View>
+
+//             <Text className="text-gray-700 font-semibold mb-1">Village</Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 mb-4"
+//               placeholder="Enter village name"
+//               placeholderTextColor="#888"
+//               value={clientData.village}
+//               onChangeText={(text) => onInputChange("village", text)}
+//             />
+
+//             <Text className="text-gray-700 font-semibold mb-1">
+//               Post Office
+//             </Text>
+//             <TextInput
+//               className="w-full border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
+//               placeholder="Enter pincode first"
+//               placeholderTextColor="#888"
+//               editable={true}
+//             />
+
+//             <View className="flex-row justify-between mt-2">
+//               <TouchableOpacity
+//                 onPress={onClose}
+//                 className="bg-gray-200 px-6 py-3 rounded-lg"
+//               >
+//                 <Text className="text-gray-800 font-semibold">Cancel</Text>
+//               </TouchableOpacity>
+//               <TouchableOpacity
+//                 onPress={onSubmit}
+//                 className="bg-blue-600 px-6 py-3 rounded-lg"
+//               >
+//                 <Text className="text-white font-semibold">Add Client</Text>
+//               </TouchableOpacity>
+//             </View>
+//           </ScrollView>
+//         </View>
+//       </KeyboardAvoidingView>
+//     </Modal>
+//   )
+// );
+
+export const AddClientForm: React.FC<AddClientFormProps> = ({
+  visible,
+  onClose,
+  clientData,
+  onInputChange,
+  onSubmit,
+}) => {
+  const insets = useSafeAreaInsets();
+
+  // Choose behaviour and an offset that accounts for header + statusbar
+  const keyboardVerticalOffset =
+    Platform.OS === "android" ? insets.top + 80 : insets.top + 60;
+
+  return (
     <Modal
+      visible={visible}
       animationType="slide"
       transparent={true}
-      visible={visible}
+      presentationStyle="overFullScreen" // important on Android/iOS
       onRequestClose={onClose}
     >
-      <KeyboardAvoidingView
-    //      behavior={Platform.OS === "ios" ? "padding" : "position"} 
-    // keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0} 
-    // className="flex-1 justify-center items-center bg-black/50"
-    behavior={Platform.OS === "ios" ? "padding" : "height"}
-      className="flex-1 justify-center items-center bg-black/50"
-      >
-        <View className="bg-white rounded-lg shadow-xl w-11/12 max-h-[85%]">
-          <View className="flex-row items-center justify-between p-4 border-b border-gray-200">
-            <View>
-              <Text className="text-xl font-bold text-gray-800">
-                Create a new client
-              </Text>
-              <Text className="text-sm text-gray-500">
-                with selected services
-              </Text>
+      <View style={styles.overlay}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={keyboardVerticalOffset}
+          style={styles.avoiding}
+        >
+          <View style={styles.modalContainer}>
+            {/* Header */}
+            <View style={styles.header}>
+              <View>
+                <Text style={styles.title}>Create a new client</Text>
+                <Text style={styles.subtitle}>with selected services</Text>
+              </View>
+              <TouchableOpacity onPress={onClose} accessibilityLabel="close">
+                <Text style={styles.close}>✕</Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={onClose}>
-              <Text className="text-gray-500 font-bold text-2xl"></Text>
-            </TouchableOpacity>
+
+            {/* Form content: ScrollView with flexGrow so it can scroll when keyboard opens */}
+            <ScrollView
+              keyboardShouldPersistTaps="handled"
+              contentContainerStyle={[styles.scrollContent, { paddingBottom: insets.bottom + 20 }]}
+              showsVerticalScrollIndicator={false}
+            >
+              <View style={styles.row}>
+                <Text style={styles.label}>Client ID:</Text>
+                <Text style={styles.clientId}>{clientData.id}</Text>
+              </View>
+
+              <Text style={styles.label}>Full Name <Text style={{ color: "#ef4444" }}>*</Text></Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter full name"
+                placeholderTextColor="#888"
+                value={clientData.fullName}
+                onChangeText={(t) => onInputChange("fullName", t)}
+                returnKeyType="next"
+              />
+
+              <Text style={styles.label}>Email <Text style={{ color: "#ef4444" }}>*</Text></Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter email"
+                placeholderTextColor="#888"
+                value={clientData.email}
+                onChangeText={(t) => onInputChange("email", t)}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                returnKeyType="next"
+              />
+
+              <Text style={styles.label}>Mobile <Text style={{ color: "#ef4444" }}>*</Text></Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter 10-digit mobile number"
+                placeholderTextColor="#888"
+                value={clientData.mobile}
+                onChangeText={(t) => onInputChange("mobile", t)}
+                keyboardType="phone-pad"
+                maxLength={10}
+                returnKeyType="next"
+              />
+
+              <Text style={styles.label}>Full Address</Text>
+              <TextInput
+                style={[styles.input, { height: 100, textAlignVertical: "top" }]}
+                placeholder="Enter full address"
+                placeholderTextColor="#888"
+                value={clientData.fullAddress}
+                onChangeText={(t) => onInputChange("fullAddress", t)}
+                multiline
+                returnKeyType="next"
+              />
+
+              <Text style={styles.label}>Pincode</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter 6-digit pincode"
+                placeholderTextColor="#888"
+                value={clientData.pincode}
+                onChangeText={(t) => onInputChange("pincode", t)}
+                keyboardType="numeric"
+                maxLength={6}
+                returnKeyType="next"
+              />
+
+              <View style={{ flexDirection: "row", gap: 12 }}>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.label}>State</Text>
+                  <TextInput
+                    style={[styles.input, styles.readOnly]}
+                    placeholder="Enter state"
+                    placeholderTextColor="#888"
+                    editable={true}
+                  />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.label}>City</Text>
+                  <TextInput
+                    style={[styles.input, styles.readOnly]}
+                    placeholder="Enter city"
+                    placeholderTextColor="#888"
+                    editable={true}
+                  />
+                </View>
+              </View>
+
+              <Text style={styles.label}>Village</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter village name"
+                placeholderTextColor="#888"
+                value={clientData.village}
+                onChangeText={(t) => onInputChange("village", t)}
+                returnKeyType="next"
+              />
+
+              <Text style={styles.label}>Post Office</Text>
+              <TextInput
+                style={[styles.input, styles.readOnly]}
+                placeholder="Enter pincode first"
+                placeholderTextColor="#888"
+                editable={true}
+              />
+
+              <View style={styles.actions}>
+                <TouchableOpacity onPress={onClose} style={styles.cancelBtn}>
+                  <Text style={styles.cancelText}>Cancel</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={onSubmit} style={styles.addBtn}>
+                  <Text style={styles.addText}>Add Client</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
           </View>
-          <ScrollView
-            contentContainerStyle={{ padding: 16 }}
-            keyboardShouldPersistTaps="handled"
-            showsVerticalScrollIndicator={false}
-          >
-            <View className="mb-4 bg-gray-100 p-2 rounded-md">
-              <Text className="text-gray-600 font-semibold">
-                Client ID: {clientData.id}
-              </Text>
-            </View>
-
-            {/* Form Fields */}
-            <Text className="text-gray-700 font-semibold mb-1">
-              Full Name <Text className="text-red-500">*</Text>
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter full name"
-              placeholderTextColor="#888"
-              value={clientData.fullName}
-              onChangeText={(text) => onInputChange("fullName", text)}
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Email <Text className="text-red-500">*</Text>
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter email"
-              placeholderTextColor="#888"
-              value={clientData.email}
-              onChangeText={(text) => onInputChange("email", text)}
-              keyboardType="email-address"
-              autoCapitalize="none"
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Mobile <Text className="text-red-500">*</Text>
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter 10-digit mobile number"
-              placeholderTextColor="#888"
-              value={clientData.mobile}
-              onChangeText={(text) => onInputChange("mobile", text)}
-              keyboardType="phone-pad"
-              maxLength={10}
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Full Address
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 h-20 mb-4"
-              placeholder="Enter full address"
-              placeholderTextColor="#888"
-              value={clientData.fullAddress}
-              onChangeText={(text) => onInputChange("fullAddress", text)}
-              multiline
-              textAlignVertical="top"
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Reference Name
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter reference name"
-              placeholderTextColor="#888"
-              value={clientData.referenceName}
-              onChangeText={(text) => onInputChange("referenceName", text)}
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Reference Mobile
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter 10-digit mobile number"
-              placeholderTextColor="#888"
-              value={clientData.referenceMobile}
-              onChangeText={(text) => onInputChange("referenceMobile", text)}
-              keyboardType="phone-pad"
-              maxLength={10}
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">Pincode</Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter 6-digit pincode"
-              placeholderTextColor="#888"
-              value={clientData.pincode}
-              onChangeText={(text) => onInputChange("pincode", text)}
-              keyboardType="numeric"
-              maxLength={6}
-            />
-
-            <View className="flex-row space-x-4">
-              <View className="flex-1">
-                <Text className="text-gray-700 font-semibold mb-1">State</Text>
-                <TextInput
-                  className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
-                  placeholder="Enter state"
-                  placeholderTextColor="#888"
-                  editable={true}
-                />
-              </View>
-              <View className="flex-1">
-                <Text className="text-gray-700 font-semibold mb-1">City</Text>
-                <TextInput
-                  className="border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
-                  placeholder="Enter city"
-                  placeholderTextColor="#888"
-                  editable={true}
-                />
-                {/* // value={clientData.city} */}
-              </View>
-            </View>
-
-            <Text className="text-gray-700 font-semibold mb-1">Village</Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Enter village name"
-              placeholderTextColor="#888"
-              value={clientData.village}
-              onChangeText={(text) => onInputChange("village", text)}
-            />
-
-            <Text className="text-gray-700 font-semibold mb-1">
-              Post Office
-            </Text>
-            <TextInput
-              className="w-full border border-gray-300 rounded-md p-3 bg-gray-100 text-gray-500 mb-4"
-              placeholder="Enter pincode first"
-              placeholderTextColor="#888"
-              editable={true}
-            />
-
-            <View className="flex-row justify-between mt-2">
-              <TouchableOpacity
-                onPress={onClose}
-                className="bg-gray-200 px-6 py-3 rounded-lg"
-              >
-                <Text className="text-gray-800 font-semibold">Cancel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onSubmit}
-                className="bg-blue-600 px-6 py-3 rounded-lg"
-              >
-                <Text className="text-white font-semibold">Add Client</Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-        </View>
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </View>
     </Modal>
-  )
-);
+  );
+};
 
 interface ManagePricesFormProps {
   visible: boolean;
@@ -564,3 +736,35 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.45)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  avoiding: { flex: 1, width: "100%", justifyContent: "center", alignItems: "center" },
+  modalContainer: {
+    width: "94%",
+    maxHeight: "86%",
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    overflow: "hidden",
+  },
+  header: { flexDirection: "row", justifyContent: "space-between", padding: 16, alignItems: "center", borderBottomWidth: 1, borderColor: "#eee" },
+  title: { fontSize: 18, fontWeight: "700", color: "#111827" },
+  subtitle: { fontSize: 13, color: "#6b7280" },
+  close: { fontSize: 22, color: "#6b7280", paddingLeft: 8 },
+  scrollContent: { padding: 16, paddingBottom: 28, flexGrow: 1 },
+  label: { fontSize: 14, color: "#374151", marginBottom: 8 },
+  clientId: { fontSize: 14, color: "#374151", fontWeight: "600" },
+  input: { backgroundColor: "#fff", borderColor: "#e5e7eb", borderWidth: 1, borderRadius: 8, padding: 12, marginBottom: 14, color: "#111827" },
+  readOnly: { backgroundColor: "#f3f4f6", color: "#6b7280" },
+  row: { marginBottom: 12 },
+  actions: { flexDirection: "row", justifyContent: "space-between", marginTop: 8 },
+  cancelBtn: { backgroundColor: "#e5e7eb", paddingVertical: 12, paddingHorizontal: 20, borderRadius: 8 },
+  cancelText: { color: "#111827", fontWeight: "600" },
+  addBtn: { backgroundColor: "#2563eb", paddingVertical: 12, paddingHorizontal: 20, borderRadius: 8 },
+  addText: { color: "#fff", fontWeight: "700" },
+});
