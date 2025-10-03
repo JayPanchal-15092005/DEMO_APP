@@ -21,7 +21,7 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.jay_panchal.legaldocument",
-       "windowSoftInputMode": "adjustResize"
+      "windowSoftInputMode": "adjustResize"
     },
     "web": {
       "output": "static",
@@ -42,7 +42,8 @@
           }
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
