@@ -800,8 +800,10 @@ export default function RentAgreementForm() {
     try {
       const finalHtml = await generateHtml();
       router.push({
-        pathname: "/(tabs)/preview",
-        params: { html: finalHtml },
+        // pathname: "/(tabs)/preview",
+        pathname: "/[id]",
+        // params: { html: finalHtml },
+        params: { id: 'unique-id', html: finalHtml},
       });
     } catch (e) {
       console.error("Error loading or processing template:", e);
@@ -821,6 +823,7 @@ export default function RentAgreementForm() {
       headerRight: () => (
         <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
           <TouchableOpacity
+            // onPress={() => router.push('/(tabs)/preview/[id]')}
             onPress={onPreviewPress}
             className="bg-blue-600 px-4 py-2 rounded-md"
           >

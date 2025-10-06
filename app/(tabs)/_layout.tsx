@@ -1,6 +1,5 @@
 import { FontAwesome } from '@expo/vector-icons';
 import AntDesign from "@expo/vector-icons/AntDesign";
-import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Tabs } from "expo-router";
 import React from "react";
@@ -18,10 +17,12 @@ export default function TabsLayout() {
           borderTopWidth: 1,
           borderTopColor: "#e5e7eb",
           height: 56 + insets.bottom,
+          overflow: "hidden",
           paddingTop: 6,
         },
         tabBarActiveTintColor: "#1DA1F2",
-        tabBarInactiveTintColor: "#9ca3af",
+        // tabBarInactiveTintColor: "#9ca3af",
+        tabBarInactiveTintColor: "#CDCDE0"
       }}
     >
       <Tabs.Screen
@@ -61,15 +62,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="preview"
-        options={{
-          title: "preview",
-          tabBarIcon: ({ color, size }) => (
-            <Fontisto name="preview" size={size} color={color} />
-          ),
-        }}
-       />
     </Tabs>
   );
 }
