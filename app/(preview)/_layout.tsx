@@ -12,7 +12,7 @@ export default function PreviewLayout() {
           headerShown: false, // The header is handled by the index.tsx file
           title: "Preview",
         }}
-      />
+      />  
     </Stack>
   );
 }
