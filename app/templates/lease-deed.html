@@ -1,0 +1,479 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>લીઝ ડીડ (Lease Deed)</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        padding: 20px;
+        line-height: 1.8;
+        font-size: 14px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .dynamic-data {
+        font-weight: bold;
+        color: #000;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #333;
+      }
+      h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .property-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        min-height: 60px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
+      .boundary-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+      }
+      .table-container {
+        margin: 20px 0;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #333;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+      .signature-table {
+        margin-top: 40px;
+        border: none;
+      }
+      .signature-table td {
+        border: none;
+        text-align: center;
+        padding: 20px 10px;
+      }
+      ol {
+        padding-left: 25px;
+      }
+      ol > li {
+        margin-bottom: 15px;
+      }
+      .custom-rule {
+        margin-bottom: 15px;
+      }
+      .indent {
+        margin-left: 30px;
+      }
+      @media print {
+        body {
+          margin: 0;
+        }
+        .property-box,
+        .boundary-box,
+        ol > li,
+        table {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">ભાડાપટ્ટો યાને લીઝ ડીડ</h1>
+
+    <p>
+      આ ભાડાપટ્ટો યાને લીઝ ડીડ પક્ષકારો વચ્ચે આજ તારીખ
+      <span class="dynamic-data">{{agreementDate}}</span> ના રોજ
+      <span class="dynamic-data">{{agreementLocation}}</span> ખાતે કરવામાં આવે
+      છે. સદરહુ કરારની અમલવારી તારીખ
+      <span class="dynamic-data">{{startDate}}</span> થી શરૂ થઈને કુલ 8 વર્ષ
+      માટે અમલમાં રહેશે અને તેની સમાપ્તિ તારીખ
+      <span class="dynamic-data">{{endDate}}</span> રહેશે.
+    </p>
+
+    <div class="details">
+      <h2>એક તરફવાળા, LESSOR, ભાડે આપનાર :-</h2>
+      <p>
+        નામ: <span class="dynamic-data">{{lessorName}}</span><br />
+        ઉં.આ.વ. <span class="dynamic-data">{{lessorAge}}</span>, ધંધો-
+        <span class="dynamic-data">{{lessorOccupation}}</span>, ધર્મ-
+        <span class="dynamic-data">{{lessorReligion}}</span><br />
+        રહેતા <span class="dynamic-data">{{lessorAddress}}</span>, પીનકોડ-
+        <span class="dynamic-data">{{lessorPincode}}</span>
+      </p>
+      <p style="font-size: 12px; font-style: italic">
+        [જેમને હવે પછી આ ભાડાપટ્ટો યાને લીઝ ડીડ માં એક તરફવાળા, લેઝર, ભાડે
+        આપનારા અમો, અમારા એ રીતે સંબોધવામાં આવેલ છે, જે શબ્દના અર્થમાં અમો એક
+        તરફવાળા તથા અમારા વંશ, વાલી, વારસો, સક્સેસરો ઈત્યાદી તમામનો સમાવેશ થયેલો
+        ગણાશે.]
+      </p>
+    </div>
+
+    <div class="details">
+      <h2>બીજી તરફથી લીઝ લેનાર (LESSEE):-</h2>
+      <p>
+        નામ: <span class="dynamic-data">{{lesseeName}}</span><br />
+        ઉં.આ.વ. <span class="dynamic-data">{{lesseeAge}}</span>, ધંધો-
+        <span class="dynamic-data">{{lesseeOccupation}}</span>, ધર્મ-
+        <span class="dynamic-data">{{lesseeReligion}}</span><br />
+        રહેતા <span class="dynamic-data">{{lesseeAddress}}</span>, પીનકોડ-
+        <span class="dynamic-data">{{lesseePincode}}</span>
+      </p>
+      <p style="font-size: 12px; font-style: italic">
+        [જેમને હવે પછી આ ભાડાપો યાને લીઝ ડીડ માં બીજી તરફવાળા, લેસી, ભાડે રાખનાર
+        અમો, અમારા એ રીતે સંબોધવામાં આવેલ છે, જે શબ્દ ના અર્થમાં અમો બીજી
+        તરફવાળા તથા અમારા વંશ, વાલી, વારસો, સક્સેસરો ઈત્યાદિ તમામનો સમાવેશ થયેલો
+        ગણાશે.]
+      </p>
+    </div>
+
+    <p style="margin-top: 20px">
+      જેથી આપણે પક્ષકારો આ લીઝ ડીડ નીચે મુજબની વિગતો તથા શરતોને આધીન કરીએ છીએ:
+    </p>
+
+    <h2>
+      પ્રથમ પક્ષકાર ની સ્વતંત્ર માલિકી કબજા ભોગવટાની મિલકતની વિગત અને પરિશિષ્ટ
+    </h2>
+
+    <div class="property-box">
+      <p class="dynamic-data">{{propertyDescription}}</p>
+    </div>
+
+    <h3>મિલકત ચારે ચુટણી વિગત નીચે મુજબ છે:</h3>
+    <div class="boundary-box">
+      <p>
+        પૂર્વે: <span class="dynamic-data">{{boundaryEast}}</span><br />
+        પશ્ચિમે: <span class="dynamic-data">{{boundaryWest}}</span><br />
+        ઉત્તરે: <span class="dynamic-data">{{boundaryNorth}}</span><br />
+        દક્ષિણે: <span class="dynamic-data">{{boundarySouth}}</span>
+      </p>
+    </div>
+
+    <p style="font-size: 12px; font-style: italic">
+      (જેને હવે પછી આ ભાડાપટ્ટા ના કરારમાં "સદરહુ મિલકત", પ્રેમાઈસીસ એ રીતે
+      સંબોધવામાં આવેલ છે)
+    </p>
+
+    <p>
+      સદરહુ મિલકત, પ્રેમાઈસીસમાં હાલ ચાર દીવાલોનું બાંધકામ આવેલ છે. અમો બીજી
+      તરફવાળાને અમારા હોટેલના ધંધાના હેતુ માટે જરૂરિયાત હોય, તેમાં અમો લીઝ
+      લેનારે બાંધકામ ને લગતા મ્યુનિસિપલ કોર્પોરેશન કે અન્ય કોઈ નિયમન સંસ્થાના
+      કાયદાને આધીન રહી પોતાની રીતે પાર્ટિશન બાંધકામ વગેરે કરાવી જુદા જુદા રૂમો
+      બનાવી અમારા હોટેલના ધંધા માટે સદરહુ મિલકત તમો એક તરફવાળાઓ પાસેથી અમો બીજી
+      તરફવાળાએ તારીખ: <span class="dynamic-data">{{startDate}}</span> રોજથી 8
+      વર્ષ માટે નીચેની શરતોએ ભાડા પે યાને લીઝ થી રાખવા નક્કી કરતા તેનો આ કરાર
+      આપણે બે પક્ષકાર નીચેની શરતોએ કરીએ છીએ.
+    </p>
+
+    <h2>ભાડા પટ્ટાની શરતો</h2>
+
+    <ol>
+      <li>
+        <strong>પીરિયડ:</strong><br />
+        સદરહુ મિલક્ત, પ્રેમાઈસીસ અમો બીજી તરફવાળાઓ તમો એક તરફવાળાઓ પાસેથી
+        <span class="dynamic-data">{{totalYears}}</span> વર્ષ માટે લીઝથી રાખેલ
+        છે. એટલે કે સદર કરારની મુદત તારીખ:
+        <span class="dynamic-data">{{startDate}}</span> થી તારીખ:
+        <span class="dynamic-data">{{endDate}}</span> સુધીની રહેશે અને આ મુદત
+        પુરી થાય ત્યારે અમો બીજી તરફવાળાએ સદરહુ મિલકત લીઝ આપ્યાની તારીખે જેમ છે
+        તેમ (ચાલુ અને સારી હાલત મા,) પ્રત્યક્ષ, ખાલી અને શાંત કબજાએ તમો એક
+        તરફવાળાઓને પરત સપુર્દ કરવાનો છે અને રહેશે.
+        <span class="dynamic-data">{{rentFreeMonths}}</span> માસ માટે ધંધો ચાલુ
+        કરવાનો હોવાથી પ્રથમ
+        <span class="dynamic-data">{{rentFreeMonths}}</span> માસ માટે ભાડું
+        ગણવાનું રહેશે નહીં, ત્યારબાદ ભાડું ગણવાનું રહેશે.
+      </li>
+
+      <li>
+        <strong>લોક ઇન પિરિયડ:</strong><br />
+        સદરહુ મિલકત અમો બીજી તરફવાળાએ તમો એક તરફવાળા પાસેથી ન્યુનતમ
+        <span class="dynamic-data">{{lockInYears}}</span> વર્ષ માટે લીઝ રાખેલ છે
+        અને કરારમાં નક્કી કર્યા મુજબની માસિક લીઝ ફી તમો એક તરફવાળાને બીજી
+        તરફવાળાએ ચુકવી આપવાની રહેશે. અમો બીજી તરફવાળા સદરહુ મિલકતનું રેગ્યુલર
+        ભાડું ચુકવતા હોઈએ અને કરારની તમામ શરતોનું પાલન કરતા હોઈએ તો તમો એક
+        તરફવાળાઓ લીઝ ના સમયગાળા દરમિયાન સદરહુ મિલકત ખાલી કરાવી શકશો નહીં.
+      </li>
+
+      <li>
+        <strong>લીઝ ફી / ભાડું:</strong><br />
+        સદરહુ મિલકત, પ્રેમાઈસીસ અમો બીજી તરફવાળાએ તમો એક તરફવાળાઓ પાસેથી માસિક ભાડું
+        રૂપિયા <span class="dynamic-data">{{monthlyRent}}</span>/-
+        <span class="dynamic-data">{{monthlyRentWords}}</span> ગણવાના રહેશે.
+        ધંધાની શરૂઆતમાં પ્રથમ
+        <span class="dynamic-data">{{rentFreeMonths}}</span> માસનું ભાડું ગણવાનું
+        નથી. સદરહુ રકમ દર માસની શરૂઆતમાં એટલે કે મહિનાની તારીખ ૧ થી ૧૦ સુધીમાં
+        એડવાન્સમાં ચેક થી ચુકવવાની રહેશે. દર
+        <span class="dynamic-data">{{rentIncrementYears}}</span> વર્ષ પૂરા થયા બાદ
+        માસિક લીઝ ફીમાં અગાઉના
+        <span class="dynamic-data">{{rentIncrementYears}}</span> વર્ષ દરમિયાનની
+        માસિક લીઝ ફીમાં
+        <span class="dynamic-data">{{rentIncrementPercent}}</span>% વધારો કરીને
+        ચુકવવાની રહેશે.
+      </li>
+    </ol>
+
+    <h3>
+      લીઝ ફી /ભાડાની <span class="dynamic-data">{{totalYears}}</span> વર્ષની ગણતરી
+    </h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>થી</th>
+            <th>સુધી</th>
+            <th>માસિક લીઝ ફી / ભાડું (રૂ.)</th>
+            <th>કુલ માસ</th>
+            <th>કુલ રકમ (રૂ.)</th>
+            <th>નોંધ</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{rentPeriodsHtml}}
+        </tbody>
+      </table>
+    </div>
+
+    <h3>નાણાકીય સારાંશ</h3>
+    <div class="boundary-box">
+      <p>
+        સમયસારણી અનુસાર કુલ ભાડું: રૂ.
+        <span class="dynamic-data">{{totalScheduledRent}}</span>/-<br />
+        સરેરાશ માસિક લીઝફી: રૂ.
+        <span class="dynamic-data">{{averageMonthlyRent}}</span>/-<br />
+        ડિપોઝિટ: રૂ. <span class="dynamic-data">{{securityDeposit}}</span>/-<br />
+        મહાનગરપાલિકા / અન્ય ટેક્સ: રૂ.
+        <span class="dynamic-data">{{municipalTax}}</span>/-<br />
+        અન્ય ચાર્જ / ખર્ચ: રૂ.
+        <span class="dynamic-data">{{otherCharges}}</span>/-<br />
+        <strong
+          >કુલ ચુકવવાની રકમ: રૂ.
+          <span class="dynamic-data">{{totalPayable}}</span>/-</strong
+        >
+      </p>
+    </div>
+
+    <ol start="4">
+      <li>
+        <strong>ડિપોઝિટ:</strong><br />
+        સદરહુ મિલકત, પ્રેમાઈસીસની સિક્યોરિટી ડિપોઝિટ પેટે અમો બીજી તરફવાળાએ તમો
+        એક તરફવાળાઓને અંકે રૂ.
+        <span class="dynamic-data">{{securityDeposit}}</span>/- (<span
+          class="dynamic-data"
+          >{{securityDepositWords}}</span
+        >) ડિપોઝિટ તરીકે આપવાનું નક્કી કરેલ છે, તે પૈકી રૂ.
+        <span class="dynamic-data">{{deposit1Amount}}</span>/- તારીખ
+        <span class="dynamic-data">{{deposit1Date}}</span> ના રોજ તથા બાકીના
+        રૂપિયા <span class="dynamic-data">{{deposit2Amount}}</span>/- એગ્રીમેન્ટ
+        કરતી વખતે ચુકવવાના રહેશે. સદર ડિપોઝિટની રકમ ઉપર કોઈ વ્યાજ મળવાપાત્ર નથી
+        એટલે કે સદર ડિપોઝિટની રકમ નોન-ઇન્ટરેસ્ટ સિક્યોરિટી છે.
+      </li>
+
+      <li>
+        <strong>ઉપયોગ:</strong><br />
+        સદરહુ મિલકત, પ્રેમાઈસીસ અમોએ અમારા
+        <span class="dynamic-data">{{businessType}}</span> ના ધંધાના હેતુ માટે
+        ભાડાપટ્ટે રાખેલ છે. તે સિવાય સદર મિલકતમાં કાયદાથી પ્રતિબંધિત હોય તેવી
+        કોઈ ચીજવસ્તુ કે જ્વલનશીલ ચીજવસ્તુ રાખવાની કે ઉત્પાદિત કરવાની કે વેચાણ
+        કરવાનું નથી.
+      </li>
+
+      <li>
+        <strong>ચાર્જીસ અને ટેક્સ:</strong>
+        <ol type="a" style="margin-top: 10px">
+          <li>
+            <strong>ઈલેક્ટ્રિક લાઈટ બીલ:</strong> સદરહુ મિલકત પ્રેમાઈસીસનું
+            માસિક કે દ્વિમાસિક જે કાંઈ લાઈટ બીલ / ઇલેક્ટ્રિક બીલ, દંડ, પેનલ્ટી
+            વગેરે આવે તે તમામ અમો બીજી તરફવાળાએ ભરવાનું છે.
+          </li>
+          <li>
+            <strong>મેઇન્ટેનન્સ ચાર્જીસ:</strong> સદરહુ મિલકત પ્રેમાઈસીસ વાળી
+            સોસાયટી / એસોસીએશનનું સદર મિલકત હિસ્સા પેટે જે કાંઈ માસિક
+            મેઇન્ટેનન્સ ચાર્જીસની રકમ ભરવાની આવે તે એક તરફવાળાએ ભરવાની છે અને
+            રહેશે.
+          </li>
+          <li>
+            <strong>લોકલ ઓથોરિટી ટેક્સ:</strong> સદરહુ મિલકત પ્રેમાઈસીસનું
+            મ્યુન. કોર્પોરેશન અથવા સ્થાનિક સ્વરાજ્ય ની સંસ્થાના જે કોઈ ટેક્સ /
+            વેરા પાણીવેરો, શિક્ષણ ઉપકર વાર્ષિક ટેક્સ આવે તે તમામ રકમ અમો બીજી
+            તરફવાળાએ અલગથી ભરવાની છે.
+          </li>
+          <li>
+            <strong>લાયસન્સ અને પરમિટ:</strong> સદરહુ મિલકત ના સરનામે અમો બીજી
+            તરફવાળા અમારા ધંધાને લગતા કાયદેસરના તમામ સરકારી લાયસન્સ જેવા કે શોપ
+            એસ્ટાબ્લીસમેન્ટ, ગુમાસ્તાધારા, ફૂડ લાયસન્સ, ફાયર સેફ્ટી લાયસન્સ કે
+            અન્ય કોઈપણ લાયસન્સ તેમજ જી.એસ.ટ. નંબર કે બેંક ખાતા ખોલાવવા વગેરે
+            તમામ સરકારી તેમજ અર્ધ-સરકારી લાયસન્સ પરવાના કે જરૂરી પ્રમાણપત્ર
+            અમારા ધંધાને નામે અને સ્થળે મેળવીએ.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>રિન્યુઅલ ઓપ્શન:</strong><br />
+        સદરહુ મિલકત અંગેના આ કરારની
+        <span class="dynamic-data">{{totalYears}}</span> વર્ષની મુદત પૂરી
+        થયે આપોઆપ અંત આવેલો ગણાશે. નવી મુદત માટે આ કરાર/ડીડમાં આપણે પક્ષકારો
+        રિન્યુઅલ માટે કોઈ જોગવાઈ કરતા નથી.
+      </li>
+
+      <li>
+        <strong>જવાબદારી:</strong><br />
+        સદર કરારની મુદત દરમ્યાન સદર મિલકત પ્રેમાઇસીસ અમો બીજી તરફવાળાના
+        <span class="dynamic-data">{{businessType}}</span> ના ધંધાના વપરાશ
+        ઉપયોગ માટે રહેશે. જેથી સદરહુ મિલકતમાં ધંધો કરતા, જે કોઈ જવાબદારીઓ,
+        કાર્યવાહીઓ થાય અથવા ઉપસ્થિત થાય તે તમામ અમો બીજી તરફવાળાએ કાયદેસરની
+        જવાબદારીથી અમારા ખર્ચે નિકાલ કરવાનો રહેશે.
+      </li>
+
+      <li>
+        સદરહું મિલકત કોઈના ધિરાણ કે તારણમાં મુકી શકાશે નહીં. કે સદરહું
+        મિલકતના સરનામાં ઉપર કોઈ લોન કે ધિરાણ લેવાનું નથી.
+      </li>
+
+      <li>
+        સદરહું મિલકત વપરાશ દરમ્યાન અમો બીજી તરફવાળા ના કાર્ય અને કૃત્યથી જે
+        કોઇપણ પ્રકારના કાયદાકીય પ્રશ્નો ઉપસ્થિત થાય તેની તમામની જવાબદારી અમો
+        બીજી તરફવાળા માત્રની છે અને રહેશે. તે તમામ બાબતની પાક્કી ખાતરી અને
+        ભરોષો અમો બીજી તરફવાળા આ કરારથી આપીએ છીએ.
+      </li>
+
+      <li>
+        સદરહું મિલકત, પ્રિમાઈસીસમાં ધંધો કરતી વખતે અમો બીજી તરફવાળાએ
+        આજુ-બાજુ ઉપર નીચે વાળી મિલકતના માલીકો તેમજ વપરાશકારોને કોઇપણ
+        પ્રકારનું ન્યુસન્સ કે એનોથન્સ થાય તેવા પ્રકારનું કોઈ કૃત્ય કરવા કે
+        કરાવવાનું નથી. તેમજ સોસાયટી /એસોસીએશનના નીતિ નિયમો મુજબ વપરાશ કરવાનો
+        રહેશે.
+      </li>
+
+      <li>
+        સદરહું મિલકત અંગેનો આ ભાડા કરાર યાને લીઝ ડીડ બન્ને તરફવાળાની સંમતી
+        મુજબનો છે. આમ, આપણે બન્ને પક્ષકારોનો લેસર અને લેસી તરીકે નો જ સંબંધ
+        રહેશે અને તે વિરુદ્ધ અમો બીજી તરફવાળાએ કોઇપણ રીતથી કોઇપણ પ્રકારના
+        વાદ વિવાદ, દાવા દુવી તકરાર કરવા, કરાવવાના નથી. તે તમામ બાબતની પાક્કી
+        ખાતરી અને ભરોસો અમો બીજી તરફવાળા આ કરારથી આપીએ છીએ
+      </li>
+
+      <li>
+        સદર કરારની મુદત દરમ્યાન જો અમો બીજી તરફવાળા તમો એક તરફવાળાઓને વધુમાં
+        વધુ ત્રણ માસની લીઝ ફી ના ચૂકવીએ તેવા સંજોગોમાં તમો એક તરફ વાળા અમો
+        બીજી તરફવાળાને લીગલ નોટીસ મોકલવા માટે હક્કદાર છો. જે અમો આ કરારથી
+        જાહેર કરીએ છીએ.
+      </li>
+
+      <li>
+        આ ભાડા પટ્ટાના કરાર યાને લીઝ ડીડની વિગત બંને પક્ષકારોની સમંતિ મુજબની
+        છે છતાં તે અંગે જો કોઇપણ સંજોગોમાં આપણે પક્ષકારો વચ્ચે મતભેદ થાય.
+        કોઈ કેસના કારણે હોટેલનું લાયસન્સ ફરી ચાલુ ના થાય તેવી પરિસ્થિતિ
+        ઉપસ્થિત થાય તો કોઈપણ સંજોગોમાં અમો બીજી તરફવાળા તો એક તરફવાળાઓને લીઝ
+        ફી આપવાનું બંધ કરી શકીશું.
+      </li>
+
+      <li>
+        સદરહું મિલકતમાં મુદત પુરી થાય ત્યાર સાથે લઇ જઇ શકાતી તમામ વસ્તુ સાથે
+        લઇ જવાની રહેશે, બાકીની તમામ વસ્તુ જે હાલતમાં છે તે જ હાલતમાં તમો એક
+        તરફવાળાઓને પરત કરવાની છે અને રહેશે.
+      </li>
+
+      <li>
+        કરાર મુદતથી લાઈટ મીટરની જવાબદારી અમો બીજી તરફવાળાની રહેશે જે અમો આ
+        કરારથી જાહેર કરીએ છીએ.
+      </li>
+
+      <li>
+        સદરહું મિલકતમાં તમો એક તરફવાળાઓ તથા તમારા પ્રતિનિધિનો કરારની મુદત
+        દરમ્યાન અગાઉથી જાણ કરીને ગમે ત્યારે આવવા જવાનો તથા ઇન્સ્પેક્શન
+        કરવાનો હક્ક અબાધિત છે.
+      </li>
+
+      <li>
+        આ કરારની અસલ કોપી તમો એક તરફવાળા પાસે રહેશે તેમજ ઝેરોક્ષ કોપી અમો
+        બીજી તરફવાળાએ રાખવાની રહેશે.
+      </li>
+
+      <li>
+        અગર કોઇ સંજોગોમાં લીઝ ડીડની મુદ્દત પુરી થતા પહેલા અગર એક તરફવાળા જો
+        કોઇને સદરહું મિલકત વેચવા માંગતા હોયતો વેચાણ લેનારે પણ અમોને સદરહું
+        મિલકત આ લીઝ ડીડના આધારે ભાડે આપવાની રહેશે, અને વેચાણ બાદ અમો બીજી
+        તરફવાળા વેચાણ લેનારને સદરહું મિલકતનું ભાડું આ લીઝ ડીડના હિસાબે
+        આપીશું. એક તરફવાળા કે નવા વેચાણ લેનાર સદરહું લીઝ ડીડની મુદત પહેલા,
+        બીજી તરફવાળાને મિલકતની બહાર કાઢી શકશે નહી. અને સદરહું મિલકતની વેચાણ
+        અંગેની જાણ અમો બીજી તરફવાળાને અગાઉથી કરવાની રહેશે.
+      </li>
+
+      <li>
+        ઉપરોક્ત જણાવેલ તમામ શરતોનું અમો બીજી તરફવાળાએ ચુસ્તપણે પાલન કરવાનું છે તેમાં અમો બીજી તરફવાળા કોઈ વાંધો તકરાર લઇ શકીશું નહીં. જેની અમો બીજી તરફવાળા આ કરારથી ખાતરી અને બાહેંધરી આપીએ છીએ. તે બાબતની આ લીઝ ડીડ યાને ભાડા પટ્ટાનો કરાર અમોએ અમારી રાજી ખુશીથી અક્કલ હોશિયારીથી, વાંચી, સમજી વિચારી બિન નશે બિન કેકે અવસ્થામાં કોઈના કોઇપણ જાતના દાબ દબાણ વગર, તંદુરસ્ત હાલતમાં તેમાં એક તરફવાળાઓની તરફેણમાં લખી આપેલ છે જે આપણે તથા આપણા વંશ, વાલી, વારસો વિગેરે તમામને કબુલ મંજુર અને બંધન કર્તા રહેશે
+      </li>
+
+      {{customRulesHtml}}
+    </ol>
+
+    <table class="signature-table" style="width: 100%; margin-top: 50px">
+      <tr>
+        <td colspan="2" style="text-align: left">
+          <p>સ્થળ: <span class="dynamic-data">{{agreementLocation}}</span></p>
+          <p>તારીખ: <span class="dynamic-data">{{signatureDate}}</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 50%; vertical-align: top; padding-top: 40px">
+          <p><strong>એક તરફવાળા, ભાડે આપનાર (લેસર)</strong></p>
+          <p style="margin-top: 30px">હસ્તાક્ષર: ___________________</p>
+          <p style="margin-top: 10px">
+            <span class="dynamic-data">{{lessorSignature}}</span>
+          </p>
+          <p style="margin-top: 20px"><strong>સાક્ષી ૧</strong></p>
+          <p style="margin-top: 30px">હસ્તાક્ષર: ___________________</p>
+          <p style="margin-top: 10px; text-align: left; padding-left: 20px;">
+            નામ: <span class="dynamic-data">{{witness1Name}}</span><br />
+            સરનામું: <span class="dynamic-data">{{witness1Address}}</span>
+          </p>
+        </td>
+        <td style="width: 50%; vertical-align: top; padding-top: 40px">
+          <p><strong>બીજી તરફવાળા, ભાડે રાખનાર (લેસી)</strong></p>
+          <p style="margin-top: 30px">હસ્તાક્ષર: ___________________</p>
+          <p style="margin-top: 10px">
+            <span class="dynamic-data">{{lesseeSignature}}</span>
+          </p>
+          <p style="margin-top: 20px"><strong>સાક્ષી ૨</strong></p>
+          <p style="margin-top: 30px">હસ્તાક્ષર: ___________________</p>
+          <p style="margin-top: 10px; text-align: left; padding-left: 20px;">
+            નામ: <span class="dynamic-data">{{witness2Name}}</span><br />
+            સરનામું: <span class="dynamic-data">{{witness2Address}}</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center; padding-top: 40px">
+          <p><strong>દસ્તાવેજ લખી આપનાર</strong></p>
+          <p style="margin-top: 30px">હસ્તાક્ષર: ___________________</p>
+          <p style="margin-top: 10px">
+            <span class="dynamic-data">{{documentWriterName}}</span>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -86,7 +86,7 @@ const App = () => {
                 </Text>
                 <View className="flex-row space-x-4">
                   <TouchableOpacity
-                    className="flex-row items-center bg-yellow-400 px-6 py-3 rounded-full shadow-lg active:opacity-80"
+                    className="flex-row items-center bg-lime-400 px-6 py-3 rounded-full shadow-lg active:opacity-80"
                     onPress={() => router.push("/(tabs)/products")}
                   >
                     <Text className="text-indigo-900 font-[Inter_700Bold] mr-2 text-base">
